@@ -15,7 +15,7 @@ plt.figure(figsize=(16, 7))
 plt.subplot(1, 2, 1)
 plt.errorbar(sample_sizes, estimates, yerr=errors, fmt='-o', capsize=5, label='Оценка Монте-Карло')
 plt.axhline(y=np.pi, color='r', linestyle='--', label='Истинное значение π')
-plt.xscale('log') # Логарифмическая шкала для наглядности
+plt.xscale('log') 
 plt.xlabel('Число случайных точек (N)')
 plt.ylabel('Оценка π')
 plt.title('Сходимость оценки π')
@@ -24,13 +24,13 @@ plt.legend()
 
 plt.subplot(1, 2, 2)
 
-n_show = 50000 # Using the largest sample_size for visualization
+n_show = 50000 
 
 x_show = np.random.uniform(-1, 1, n_show)
 y_show = np.random.uniform(-1, 1, n_show)
 inside_show = (x_show**2 + y_show**2) <= 1**2
 
-pi_est_final, _ = estimate_pi(n_show) # Estimate pi for this visualization to match the title
+pi_est_final, _ = estimate_pi(n_show)
 
 plt.scatter(x_show[inside_show], y_show[inside_show], color='blue', s=1, alpha=0.6, label='Внутри круга')
 plt.scatter(x_show[~inside_show], y_show[~inside_show], color='red', s=1, alpha=0.6, label='Снаружи круга')
