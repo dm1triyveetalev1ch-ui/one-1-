@@ -1,2 +1,1 @@
-# one-1-
-ai practice
+i lied. don't read. books are for nerds.
