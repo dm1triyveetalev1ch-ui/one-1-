@@ -11,7 +11,7 @@ for n in sample_sizes:
 
 plt.figure(figsize=(16, 7))
 
-# Визуализация сходимости
+
 plt.subplot(1, 2, 1)
 plt.errorbar(sample_sizes, estimates, yerr=errors, fmt='-o', capsize=5, label='Оценка Монте-Карло')
 plt.axhline(y=np.pi, color='r', linestyle='--', label='Истинное значение π')
@@ -22,11 +22,10 @@ plt.title('Сходимость оценки π')
 plt.grid(True, alpha=0.3)
 plt.legend()
 
-# Визуализация точек для последнего эксперимента (N=50000)
 plt.subplot(1, 2, 2)
-# Возьмем только первые 2000 точек для наглядности графика
+
 n_show = 50000 # Using the largest sample_size for visualization
-# Re-generate points for visualization to ensure they correspond to a single run
+
 x_show = np.random.uniform(-1, 1, n_show)
 y_show = np.random.uniform(-1, 1, n_show)
 inside_show = (x_show**2 + y_show**2) <= 1**2
@@ -35,7 +34,7 @@ pi_est_final, _ = estimate_pi(n_show) # Estimate pi for this visualization to ma
 
 plt.scatter(x_show[inside_show], y_show[inside_show], color='blue', s=1, alpha=0.6, label='Внутри круга')
 plt.scatter(x_show[~inside_show], y_show[~inside_show], color='red', s=1, alpha=0.6, label='Снаружи круга')
-# Отрисовка границы круга
+
 theta = np.linspace(0, 2*np.pi, 100)
 plt.plot(np.cos(theta), np.sin(theta), color='black', linewidth=2)
 plt.xlabel('x')
